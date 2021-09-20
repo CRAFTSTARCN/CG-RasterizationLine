@@ -20,7 +20,26 @@ void Algo::genRoundPix(int x, int y) {
 }
 
 void Algo::DDA(int x0, int y0, int x1, int y1) {
+    points.clear();
 
+    int dx = std::abs(x1-x0), symx = x0<=x1 ? 1 : -1;
+    int dy = std::abs(y1-y0), symy = y0<=y1 ? 1 : -1; 
+    float k = dx > dy? (float)dy / (float)dx : (float)dx / (float)dy;
+    float sx = dx > dy? symx : symx * k;
+    float sy = dx > dy? symy * k : symy;
+
+    float addx = dx > dy? 0 : 0.5;
+    float addy = dx > dy? 0.5 : 0;
+
+    float x = x0,y = y0;
+
+    while (x * symx < (float)(symx * x1) || y * symy < (float)(symy * y1)) {
+        points.emplace_back((int)(x+addx),(int)(y+addy));
+        x += sx;
+        y += sy;
+    }
+
+    points.emplace_back(x1,y1);
 }
 
 
@@ -50,7 +69,6 @@ void Algo::GetRound(int x0, int y0, int x1, int y1) {
     y = r;
     genRoundPix(x,y);
     
-
     while(x <= y) {
         if(d < 0){
             d += 2*x+3;
