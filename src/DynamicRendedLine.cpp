@@ -26,7 +26,7 @@ void DynamicRendedLine::renderPipline() {
             vertices.push_back(x1);vertices.push_back(y1);vertices.push_back(0.0f);
             this->bindData();
             glLineWidth(2);
-            RenderableObject::renderPipline();
+            //RenderableObject::renderPipline();
         }
     }
 }

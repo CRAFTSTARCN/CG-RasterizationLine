@@ -11,6 +11,8 @@ class Window {
     GLFWwindow* window;
     unsigned int windowWidth;
     unsigned int windowHeight;
+    
+    glm::mat4 projection;
 
     public:
     std::vector<RenderableObject*> objects;

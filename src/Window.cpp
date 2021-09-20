@@ -4,7 +4,8 @@
 #include "SimpleShaderCompiler.h"
 #include "RepeatRendedObject.h"
 #include "DynamicRendedLine.h"
-#include "iostream"
+
+#include "glm/gtc/matrix_transform.hpp"
 
 Window::Window(unsigned int wd, unsigned int ht, const std::string& name) {
     windowWidth = wd;
@@ -17,6 +18,7 @@ Window::Window(unsigned int wd, unsigned int ht, const std::string& name) {
     }
 
     initGLAD(window);
+    projection = glm::ortho(-450.0f,450.0f,-450.0f,450.0f,-10.0f,100.0f);
 }
 
 Window::~Window() {
@@ -68,31 +70,31 @@ void Window::setUpRendProp() {
     obj->init([](RenderableObject* obj){
         int pix_num = 60;
 
-        float step = 2.0 / (float)pix_num;
+        float step =  900.0 / (float)pix_num;
 
 
-        float cury = -1;
+        float cury = -450;
         int idx=0;
 
         for(int i = 1; i<pix_num; ++i) {
             cury += step;
-            obj->vertices.push_back(1);
+            obj->vertices.push_back(450);
             obj->vertices.push_back(cury);
             obj->vertices.push_back(0);
             obj->indexes.push_back(idx++);
 
-            obj->vertices.push_back(-1);
+            obj->vertices.push_back(-450);
             obj->vertices.push_back(cury);
             obj->vertices.push_back(0);
             obj->indexes.push_back(idx++);
 
             obj->vertices.push_back(cury);
-            obj->vertices.push_back(1);
+            obj->vertices.push_back(450);
             obj->vertices.push_back(0);
             obj->indexes.push_back(idx++);
 
             obj->vertices.push_back(cury);
-            obj->vertices.push_back(-1);
+            obj->vertices.push_back(-450);
             obj->vertices.push_back(0);
             obj->indexes.push_back(idx++);
         }
@@ -103,10 +105,10 @@ void Window::setUpRendProp() {
     RenderableObject* obj2 = new RenderableObject(GL_STATIC_DRAW, GL_LINE_LOOP, shaderProgram);
 
     obj2->vertices = {
-        1,1,0,
-        1,-1,0,
-        -1,-1,0,
-        -1,1,0
+        450,450,0,
+        450,-450,0,
+        -450,-450,0,
+        -450,450,0
     };
 
     obj2->indexes = {
@@ -128,8 +130,8 @@ void Window::setUpRendProp() {
 
     objects.push_back(obj);
     objects.push_back(obj2);
-    objects.push_back(obj3);
-    objects.push_back(obj4);
+    //objects.push_back(obj3);
+    //objects.push_back(obj4);
 }
 
 void Window::renderProcess() {
@@ -137,7 +139,7 @@ void Window::renderProcess() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glLineWidth(1);
     for(int i=0; i<objects.size(); ++i) {
-        objects[i]->renderPipline();
+        objects[i]->renderPipline(projection);
     }
     glfwSwapBuffers(window);
 }

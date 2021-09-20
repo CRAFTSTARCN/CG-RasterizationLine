@@ -1,6 +1,11 @@
 #include "RenderableObject.h"
+#include "glm/gtc/matrix_transform.hpp"
+#include "glm/gtc/type_ptr.hpp"
 
-RenderableObject::RenderableObject(GLenum drawT, GLenum rendT, int shader) {
+
+RenderableObject::RenderableObject(GLenum drawT, GLenum rendT, int shader) : 
+    transfrom(0.0f,0.0f,0.0f), rotate(0.0f,0.0f,0.0f), scale(1.0f,1.0f,1.0f)
+{
     drawType = drawT;
     rendType = rendT;
     shaderProgram = shader;
@@ -39,8 +44,19 @@ WARNNING:
 Asynchronous function
 You cant run this function in to thread simultaneously
 */
-void RenderableObject::renderPipline() {
+void RenderableObject::renderPipline(const glm::mat4& project) {
+    glm::mat4 transfromMatrix(1.0);
+    transfromMatrix = glm::scale(transfromMatrix,scale);
+
+    //transfromMatrix = glm::rotate(transfromMatrix,glm::radians(45.0f),rotate);
+
+    transfromMatrix = glm::translate(transfromMatrix,transfrom);
+
+    transfromMatrix = project * transfromMatrix;
     glUseProgram(shaderProgram);
+
+    glUniformMatrix4fv(glGetUniformLocation(shaderProgram,"MATRIX_MVP"),1,GL_FALSE,glm::value_ptr(transfromMatrix));
+
     glBindVertexArray(VAO);
     glDrawElements(rendType,indexes.size(),GL_UNSIGNED_INT,0);
     glBindVertexArray(0);
