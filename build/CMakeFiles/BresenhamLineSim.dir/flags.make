@@ -3,13 +3,13 @@
 
 # compile C with D:/Sources/MingGW/mingw64/bin/x86_64-w64-mingw32-gcc.exe
 # compile CXX with D:/Sources/MingGW/mingw64/bin/x86_64-w64-mingw32-g++.exe
-C_FLAGS = -g  
+C_FLAGS = -O3 -DNDEBUG  
 
 C_DEFINES = 
 
 C_INCLUDES = @CMakeFiles/BresenhamLineSim.dir/includes_C.rsp
 
-CXX_FLAGS = -g  
+CXX_FLAGS = -O3 -DNDEBUG  
 
 CXX_DEFINES = 
 

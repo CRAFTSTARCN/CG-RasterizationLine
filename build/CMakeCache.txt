@@ -30,7 +30,7 @@ BresenhamLineSim_SOURCE_DIR:STATIC=D:/VS_Progs/__CODE__CG/BresenhamLineSim
 CMAKE_AR:FILEPATH=D:/Sources/MingGW/mingw64/bin/ar.exe
 
 //No help, variable specified on the command line.
-CMAKE_BUILD_TYPE:STRING=Debug
+CMAKE_BUILD_TYPE:STRING=Release
 
 //Enable/Disable color output during build.
 CMAKE_COLOR_MAKEFILE:BOOL=ON
