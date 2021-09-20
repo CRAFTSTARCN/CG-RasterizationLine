@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../headers/Algo.h
+vector
+-
+
+D:/VS_Progs/__CODE__CG/BresenhamLineSim/src/Algo.cpp
+Algo.h
+D:/VS_Progs/__CODE__CG/BresenhamLineSim/src/Algo.h
+algorithm
+-
+cmath
+-
+
