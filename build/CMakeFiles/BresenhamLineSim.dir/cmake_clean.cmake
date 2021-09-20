@@ -5,6 +5,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/BresenhamLineSim.dir/glad.c.obj"
   "CMakeFiles/BresenhamLineSim.dir/main.cpp.obj"
   "CMakeFiles/BresenhamLineSim.dir/src/Algo.cpp.obj"
+  "CMakeFiles/BresenhamLineSim.dir/src/DynamicRendedLine.cpp.obj"
   "CMakeFiles/BresenhamLineSim.dir/src/InputHandler.cpp.obj"
   "CMakeFiles/BresenhamLineSim.dir/src/Logger.cpp.obj"
   "CMakeFiles/BresenhamLineSim.dir/src/RenderableObject.cpp.obj"

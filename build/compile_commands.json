@@ -43,5 +43,10 @@
   "directory": "D:/VS_Progs/__CODE__CG/BresenhamLineSim/build",
   "command": "D:\\Sources\\MingGW\\mingw64\\bin\\x86_64-w64-mingw32-g++.exe   @CMakeFiles/BresenhamLineSim.dir/includes_CXX.rsp -g   -o CMakeFiles\\BresenhamLineSim.dir\\src\\RepeatRendedObject.cpp.obj -c D:\\VS_Progs\\__CODE__CG\\BresenhamLineSim\\src\\RepeatRendedObject.cpp",
   "file": "D:/VS_Progs/__CODE__CG/BresenhamLineSim/src/RepeatRendedObject.cpp"
+},
+{
+  "directory": "D:/VS_Progs/__CODE__CG/BresenhamLineSim/build",
+  "command": "D:\\Sources\\MingGW\\mingw64\\bin\\x86_64-w64-mingw32-g++.exe   @CMakeFiles/BresenhamLineSim.dir/includes_CXX.rsp -g   -o CMakeFiles\\BresenhamLineSim.dir\\src\\DynamicRendedLine.cpp.obj -c D:\\VS_Progs\\__CODE__CG\\BresenhamLineSim\\src\\DynamicRendedLine.cpp",
+  "file": "D:/VS_Progs/__CODE__CG/BresenhamLineSim/src/DynamicRendedLine.cpp"
 }
 ]

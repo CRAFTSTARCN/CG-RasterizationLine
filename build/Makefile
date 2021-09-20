@@ -600,6 +600,33 @@ src/Algo.cpp.s:
 	$(MAKE) -f CMakeFiles\BresenhamLineSim.dir\build.make CMakeFiles/BresenhamLineSim.dir/src/Algo.cpp.s
 .PHONY : src/Algo.cpp.s
 
+src/DynamicRendedLine.obj: src/DynamicRendedLine.cpp.obj
+
+.PHONY : src/DynamicRendedLine.obj
+
+# target to build an object file
+src/DynamicRendedLine.cpp.obj:
+	$(MAKE) -f CMakeFiles\BresenhamLineSim.dir\build.make CMakeFiles/BresenhamLineSim.dir/src/DynamicRendedLine.cpp.obj
+.PHONY : src/DynamicRendedLine.cpp.obj
+
+src/DynamicRendedLine.i: src/DynamicRendedLine.cpp.i
+
+.PHONY : src/DynamicRendedLine.i
+
+# target to preprocess a source file
+src/DynamicRendedLine.cpp.i:
+	$(MAKE) -f CMakeFiles\BresenhamLineSim.dir\build.make CMakeFiles/BresenhamLineSim.dir/src/DynamicRendedLine.cpp.i
+.PHONY : src/DynamicRendedLine.cpp.i
+
+src/DynamicRendedLine.s: src/DynamicRendedLine.cpp.s
+
+.PHONY : src/DynamicRendedLine.s
+
+# target to generate assembly for a file
+src/DynamicRendedLine.cpp.s:
+	$(MAKE) -f CMakeFiles\BresenhamLineSim.dir\build.make CMakeFiles/BresenhamLineSim.dir/src/DynamicRendedLine.cpp.s
+.PHONY : src/DynamicRendedLine.cpp.s
+
 src/InputHandler.obj: src/InputHandler.cpp.obj
 
 .PHONY : src/InputHandler.obj
@@ -811,6 +838,9 @@ help:
 	@echo ... src/Algo.obj
 	@echo ... src/Algo.i
 	@echo ... src/Algo.s
+	@echo ... src/DynamicRendedLine.obj
+	@echo ... src/DynamicRendedLine.i
+	@echo ... src/DynamicRendedLine.s
 	@echo ... src/InputHandler.obj
 	@echo ... src/InputHandler.i
 	@echo ... src/InputHandler.s

@@ -18,6 +18,14 @@ CMakeFiles/BresenhamLineSim.dir/main.cpp.obj: ../main.cpp
 CMakeFiles/BresenhamLineSim.dir/src/Algo.cpp.obj: ../headers/Algo.h
 CMakeFiles/BresenhamLineSim.dir/src/Algo.cpp.obj: ../src/Algo.cpp
 
+CMakeFiles/BresenhamLineSim.dir/src/DynamicRendedLine.cpp.obj: ../headers/DynamicRendedLine.h
+CMakeFiles/BresenhamLineSim.dir/src/DynamicRendedLine.cpp.obj: ../headers/InputHandler.h
+CMakeFiles/BresenhamLineSim.dir/src/DynamicRendedLine.cpp.obj: ../headers/RenderableObject.h
+CMakeFiles/BresenhamLineSim.dir/src/DynamicRendedLine.cpp.obj: ../include/GLFW/glfw3.h
+CMakeFiles/BresenhamLineSim.dir/src/DynamicRendedLine.cpp.obj: ../include/KHR/khrplatform.h
+CMakeFiles/BresenhamLineSim.dir/src/DynamicRendedLine.cpp.obj: ../include/glad/glad.h
+CMakeFiles/BresenhamLineSim.dir/src/DynamicRendedLine.cpp.obj: ../src/DynamicRendedLine.cpp
+
 CMakeFiles/BresenhamLineSim.dir/src/InputHandler.cpp.obj: ../headers/InputHandler.h
 CMakeFiles/BresenhamLineSim.dir/src/InputHandler.cpp.obj: ../include/GLFW/glfw3.h
 CMakeFiles/BresenhamLineSim.dir/src/InputHandler.cpp.obj: ../include/KHR/khrplatform.h
@@ -253,6 +261,7 @@ CMakeFiles/BresenhamLineSim.dir/src/SimpleShaderCompiler.cpp.obj: ../include/gla
 CMakeFiles/BresenhamLineSim.dir/src/SimpleShaderCompiler.cpp.obj: ../src/SimpleShaderCompiler.cpp
 
 CMakeFiles/BresenhamLineSim.dir/src/Window.cpp.obj: ../headers/Algo.h
+CMakeFiles/BresenhamLineSim.dir/src/Window.cpp.obj: ../headers/DynamicRendedLine.h
 CMakeFiles/BresenhamLineSim.dir/src/Window.cpp.obj: ../headers/Exception.hpp
 CMakeFiles/BresenhamLineSim.dir/src/Window.cpp.obj: ../headers/InputHandler.h
 CMakeFiles/BresenhamLineSim.dir/src/Window.cpp.obj: ../headers/Logger.h

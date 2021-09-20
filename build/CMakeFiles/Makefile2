@@ -857,12 +857,12 @@ CMakeFiles/ContinuousCoverage.dir/clean:
 CMakeFiles/BresenhamLineSim.dir/all:
 	$(MAKE) -f CMakeFiles\BresenhamLineSim.dir\build.make CMakeFiles/BresenhamLineSim.dir/depend
 	$(MAKE) -f CMakeFiles\BresenhamLineSim.dir\build.make CMakeFiles/BresenhamLineSim.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=D:\VS_Progs\__CODE__CG\BresenhamLineSim\build\CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10 "Built target BresenhamLineSim"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=D:\VS_Progs\__CODE__CG\BresenhamLineSim\build\CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11 "Built target BresenhamLineSim"
 .PHONY : CMakeFiles/BresenhamLineSim.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/BresenhamLineSim.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\VS_Progs\__CODE__CG\BresenhamLineSim\build\CMakeFiles 10
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\VS_Progs\__CODE__CG\BresenhamLineSim\build\CMakeFiles 11
 	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/BresenhamLineSim.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start D:\VS_Progs\__CODE__CG\BresenhamLineSim\build\CMakeFiles 0
 .PHONY : CMakeFiles/BresenhamLineSim.dir/rule

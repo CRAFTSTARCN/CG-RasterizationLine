@@ -17,6 +17,7 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
 set(CMAKE_DEPENDS_CHECK_CXX
   "D:/VS_Progs/__CODE__CG/BresenhamLineSim/main.cpp" "D:/VS_Progs/__CODE__CG/BresenhamLineSim/build/CMakeFiles/BresenhamLineSim.dir/main.cpp.obj"
   "D:/VS_Progs/__CODE__CG/BresenhamLineSim/src/Algo.cpp" "D:/VS_Progs/__CODE__CG/BresenhamLineSim/build/CMakeFiles/BresenhamLineSim.dir/src/Algo.cpp.obj"
+  "D:/VS_Progs/__CODE__CG/BresenhamLineSim/src/DynamicRendedLine.cpp" "D:/VS_Progs/__CODE__CG/BresenhamLineSim/build/CMakeFiles/BresenhamLineSim.dir/src/DynamicRendedLine.cpp.obj"
   "D:/VS_Progs/__CODE__CG/BresenhamLineSim/src/InputHandler.cpp" "D:/VS_Progs/__CODE__CG/BresenhamLineSim/build/CMakeFiles/BresenhamLineSim.dir/src/InputHandler.cpp.obj"
   "D:/VS_Progs/__CODE__CG/BresenhamLineSim/src/Logger.cpp" "D:/VS_Progs/__CODE__CG/BresenhamLineSim/build/CMakeFiles/BresenhamLineSim.dir/src/Logger.cpp.obj"
   "D:/VS_Progs/__CODE__CG/BresenhamLineSim/src/RenderableObject.cpp" "D:/VS_Progs/__CODE__CG/BresenhamLineSim/build/CMakeFiles/BresenhamLineSim.dir/src/RenderableObject.cpp.obj"

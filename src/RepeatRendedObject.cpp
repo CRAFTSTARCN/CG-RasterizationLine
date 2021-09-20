@@ -49,6 +49,11 @@ void RepeatRendedObject::renderPipline() {
         if(InputHandler::getKeyDown(GLFW_KEY_B)) {
             genFunc = &Algo::Breshenham;
         }
+        if(InputHandler::getKeyDown(GLFW_KEY_E)) {
+            algo.clear();
+        }
+        x0 = 0; y0 = 0;
+        x1 = 0; y1 = 0;
     }
 
     for(auto beg = algo.getResIter(); beg != algo.end(); ++beg) {
