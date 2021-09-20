@@ -40,11 +40,11 @@ void Window::initWindow() {
 void Window::setUpRendProp() {
     int vert, frag, shaderProgram,vertTrans,shaderProgram2,dVert,dFrag,shaderProgram3;
     try {
-        vert = SimpleShaderCompiler::compile("./shaders/vert.vert",GL_VERTEX_SHADER);
-        frag = SimpleShaderCompiler::compile("./shaders/frag.frag",GL_FRAGMENT_SHADER);
-        vertTrans = SimpleShaderCompiler::compile("./shaders/reposVert.vert",GL_VERTEX_SHADER);
-        dVert = SimpleShaderCompiler::compile("./shaders/defaultVert.vert",GL_VERTEX_SHADER);
-        dFrag = SimpleShaderCompiler::compile("./shaders/defaultFrag.frag",GL_FRAGMENT_SHADER);
+        vert = SimpleShaderCompiler::compile("../shaders/vert.vert",GL_VERTEX_SHADER);
+        frag = SimpleShaderCompiler::compile("../shaders/frag.frag",GL_FRAGMENT_SHADER);
+        vertTrans = SimpleShaderCompiler::compile("../shaders/reposVert.vert",GL_VERTEX_SHADER);
+        dVert = SimpleShaderCompiler::compile("../shaders/defaultVert.vert",GL_VERTEX_SHADER);
+        dFrag = SimpleShaderCompiler::compile("../shaders/defaultFrag.frag",GL_FRAGMENT_SHADER);
 
         shaderProgram = SimpleShaderCompiler::link(vert,frag);
         shaderProgram2 = SimpleShaderCompiler::link(vertTrans,frag);
