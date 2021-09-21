@@ -68,7 +68,7 @@ void Window::setUpRendProp() {
     RenderableObject* obj = new RenderableObject(GL_STATIC_DRAW, GL_LINES, shaderProgram);
     
     obj->init([](RenderableObject* obj){
-        int pix_num = 60;
+        int pix_num = 90;
 
         float step =  900.0 / (float)pix_num;
 
@@ -117,7 +117,7 @@ void Window::setUpRendProp() {
 
     obj2->bindData();
 
-    RenderableObject* obj3 = new RepeatRendedObject(GL_STATIC_DRAW,GL_TRIANGLE_FAN,shaderProgram2,900,15);
+    RenderableObject* obj3 = new RepeatRendedObject(GL_STATIC_DRAW,GL_TRIANGLE_FAN,shaderProgram2,900,10);
     obj3->init();
     obj3->bindData();
 

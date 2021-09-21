@@ -48,7 +48,13 @@ void RenderableObject::renderPipline(const glm::mat4& project) {
     glm::mat4 transfromMatrix(1.0);
     transfromMatrix = glm::scale(transfromMatrix,scale);
 
-    //transfromMatrix = glm::rotate(transfromMatrix,glm::radians(45.0f),rotate);
+    if(rotate.x != 0.0f)
+        transfromMatrix = glm::rotate(transfromMatrix,glm::radians(rotate.x),glm::vec3(1.0f,0.0f,0.0f));
+    if(rotate.y != 0.0f)
+        transfromMatrix = glm::rotate(transfromMatrix,glm::radians(rotate.y),glm::vec3(0.0f,1.0f,0.0f));
+    if(rotate.z != 0.0f)
+        transfromMatrix = glm::rotate(transfromMatrix,glm::radians(rotate.z),glm::vec3(0.0f,0.0f,1.0f));
+
 
     transfromMatrix = glm::translate(transfromMatrix,transfrom);
 

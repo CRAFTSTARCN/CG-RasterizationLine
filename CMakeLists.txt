@@ -26,6 +26,7 @@ set(SOURCE_FILES main.cpp glad.c
                  headers/window.h
                  headers/RepeatRendedObject.h
                  headers/DynamicRendedLine.h
+                 headers/TransfromObject.h
                  
                  src/Logger.cpp
                  src/RenderableObject.cpp
