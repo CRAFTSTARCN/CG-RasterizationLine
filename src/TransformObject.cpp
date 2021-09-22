@@ -21,16 +21,10 @@ void TransfromObject::renderPipline(const glm::mat4& project) {
         } else {
             x1 = InputHandler::getMouseX();
             y1 = InputHandler::getMouseY();
-            transfrom.x += (x1 - x0);
-            transfrom.y += (y0 - y1);
+            translate.x += (x1 - x0);
+            translate.y += (y0 - y1);
             x0 = x1;
             y0 = y1;
-            if(transfrom.x > 450.0) transfrom.x = 450.0;
-            if(transfrom.x < -450.0) transfrom.x = -450.0;
-
-            if(transfrom.y > 450.0) transfrom.y = 450.0;
-            if(transfrom.y < -450.0) transfrom.y = -450.0;
-
         }
     } else {
         float scr = InputHandler::getScrollOffsetY();
@@ -40,8 +34,15 @@ void TransfromObject::renderPipline(const glm::mat4& project) {
            } else if(scr == -1.0f) {
                scale *= 0.91f;
            }
+           if(scale.x < 1.0) {
+               scale.x = 1.0; scale.y = 1.0; scale.z = 1.0;
+           }
+
+           if(scale.x > 40.0) {
+               scale.x = 40.0; scale.y = 40.0; scale.z = 40.0;
+           }
         } else if(InputHandler::getKeyDown(GLFW_KEY_H)) {
-            transfrom = glm::vec3(0.0f,0.0f,0.0f);
+            translate = glm::vec3(0.0f,0.0f,0.0f);
             scale = glm::vec3(1.0f,1.0f,1.0f);
         }
     } 
@@ -50,6 +51,14 @@ void TransfromObject::renderPipline(const glm::mat4& project) {
         x0 = 0; y0 = 0;
         x1 = 0; y1 = 0;
     }
+
+    float maxOffset = (scale.x - 1.0f) * 450;
+
+    if(translate.x > maxOffset) translate.x =maxOffset;
+    if(translate.x < -maxOffset) translate.x = -maxOffset;
+    if(translate.y > maxOffset) translate.y = maxOffset;
+    if(translate.y < -maxOffset) translate.y = -maxOffset;
+
 
     RenderableObject::renderPipline(project);
 }

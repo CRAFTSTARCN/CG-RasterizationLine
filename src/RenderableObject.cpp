@@ -4,7 +4,7 @@
 
 
 RenderableObject::RenderableObject(GLenum drawT, GLenum rendT, int shader) : 
-    transfrom(0.0f,0.0f,0.0f), rotate(0.0f,0.0f,0.0f), scale(1.0f,1.0f,1.0f)
+    translate(0.0f,0.0f,0.0f), rotate(0.0f,0.0f,0.0f), scale(1.0f,1.0f,1.0f)
 {
     drawType = drawT;
     rendType = rendT;
@@ -47,7 +47,7 @@ You cant run this function in to thread simultaneously
 void RenderableObject::renderPipline(const glm::mat4& project) {
     glm::mat4 transfromMatrix(1.0);
 
-    transfromMatrix = glm::translate(transfromMatrix,transfrom);
+    transfromMatrix = glm::translate(transfromMatrix,translate);
     transfromMatrix = glm::scale(transfromMatrix,scale);
 
     if(rotate.x != 0.0f)
