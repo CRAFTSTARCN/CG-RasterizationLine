@@ -4,6 +4,7 @@
 #include "SimpleShaderCompiler.h"
 #include "RepeatRendedObject.h"
 #include "DynamicRendedLine.h"
+#include "TransformObject.h"
 
 #include "glm/gtc/matrix_transform.hpp"
 
@@ -65,7 +66,7 @@ void Window::setUpRendProp() {
         throw e;
     }
 
-    RenderableObject* obj = new RenderableObject(GL_STATIC_DRAW, GL_LINES, shaderProgram);
+    RenderableObject* obj = new TransfromObject(GL_STATIC_DRAW, GL_LINES, shaderProgram);
     
     obj->init([](RenderableObject* obj){
         int pix_num = 90;
@@ -102,7 +103,7 @@ void Window::setUpRendProp() {
     
     obj->bindData();
 
-    RenderableObject* obj2 = new RenderableObject(GL_STATIC_DRAW, GL_LINE_LOOP, shaderProgram);
+    RenderableObject* obj2 = new TransfromObject(GL_STATIC_DRAW, GL_LINE_LOOP, shaderProgram);
 
     obj2->vertices = {
         450,450,0,

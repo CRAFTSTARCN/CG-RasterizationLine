@@ -46,6 +46,8 @@ You cant run this function in to thread simultaneously
 */
 void RenderableObject::renderPipline(const glm::mat4& project) {
     glm::mat4 transfromMatrix(1.0);
+
+    transfromMatrix = glm::translate(transfromMatrix,transfrom);
     transfromMatrix = glm::scale(transfromMatrix,scale);
 
     if(rotate.x != 0.0f)
@@ -56,12 +58,13 @@ void RenderableObject::renderPipline(const glm::mat4& project) {
         transfromMatrix = glm::rotate(transfromMatrix,glm::radians(rotate.z),glm::vec3(0.0f,0.0f,1.0f));
 
 
-    transfromMatrix = glm::translate(transfromMatrix,transfrom);
-
     transfromMatrix = project * transfromMatrix;
     glUseProgram(shaderProgram);
 
     glUniformMatrix4fv(glGetUniformLocation(shaderProgram,"MATRIX_MVP"),1,GL_FALSE,glm::value_ptr(transfromMatrix));
+    if(drawType == GL_DYNAMIC_DRAW) {
+        bindData();
+    }
 
     glBindVertexArray(VAO);
     glDrawElements(rendType,indexes.size(),GL_UNSIGNED_INT,0);

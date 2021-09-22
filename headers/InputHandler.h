@@ -24,6 +24,11 @@ class InputHandler {
     static bool rStatus;
     static bool mStatus;
 
+    static double scrollOffsetX;
+    static double scrollOffsetY;
+
+    static void scrollCallback(GLFWwindow *window, double xoffset, double yoffset);
+
     static void cursorPositionCallback(GLFWwindow* window, double x, double y);
 
     static void mouseDownCallBack(GLFWwindow* window, int button, int action, int mods);
@@ -52,6 +57,9 @@ class InputHandler {
 
     /*Should be called before poll event, after every thing down*/
     static void clearStatus();
+
+    static float getScrollOffsetX();
+    static float getScrollOffsetY();
 };
 
 #endif

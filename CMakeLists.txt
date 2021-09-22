@@ -26,7 +26,7 @@ set(SOURCE_FILES main.cpp glad.c
                  headers/window.h
                  headers/RepeatRendedObject.h
                  headers/DynamicRendedLine.h
-                 headers/TransfromObject.h
+                 headers/TransformObject.h
                  
                  src/Logger.cpp
                  src/RenderableObject.cpp
@@ -35,7 +35,8 @@ set(SOURCE_FILES main.cpp glad.c
                  src/Window.cpp
                  src/Algo.cpp
                  src/RepeatRendedObject.cpp
-                 src/DynamicRendedLine.cpp)
+                 src/DynamicRendedLine.cpp
+                 src/TransformObject.cpp)
 
 add_executable(BresenhamLineSim ${SOURCE_FILES})
 target_link_libraries(${PROJECT_NAME} glfw3)
