@@ -14,7 +14,7 @@ class DynamicRendedLine : public RenderableObject {
     DynamicRendedLine(GLenum drawT, GLenum rendT, int shader, unsigned int srcsize);
     ~DynamicRendedLine();
 
-    virtual void renderPipline();
+    virtual void renderPipline(const glm::mat4& project);
 };
 
 

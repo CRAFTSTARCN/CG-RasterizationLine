@@ -12,10 +12,11 @@ class RepeatRendedObject : public RenderableObject {
     private:
     unsigned int CanvasSize;
     unsigned int pixelSize;
-    glm::mat4 translate;
     Algo algo;
 
     int x0, y0,x1,y1;
+
+    int inputx0, inputx1, inputy0, inputy1;
 
     typedef void (Algo::*AlgoFunc)(int,int,int,int);
  
@@ -25,7 +26,7 @@ class RepeatRendedObject : public RenderableObject {
 
     RepeatRendedObject(GLenum drawT, GLenum rendT, int shader,unsigned int srcsz, unsigned int pixSize);
     virtual void init();
-    virtual void renderPipline();
+    virtual void renderPipline(const glm::mat4& project);
 };
 
 #endif

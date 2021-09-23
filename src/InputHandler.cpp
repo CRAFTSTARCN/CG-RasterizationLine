@@ -13,7 +13,8 @@ bool InputHandler::mRelease = false;
 bool InputHandler::lStatus = 0;
 bool InputHandler::rStatus = 0;
 bool InputHandler::mStatus = 0;
-
+double InputHandler::scrollOffsetX = 0.0;
+double InputHandler::scrollOffsetY = 0.0;
 
 void InputHandler::cursorPositionCallback(GLFWwindow* window, double x, double y) {
     mousePosX = x;
@@ -62,10 +63,16 @@ void InputHandler::mouseDownCallBack(GLFWwindow* window, int button, int action,
     }
 }
 
+void InputHandler::scrollCallback(GLFWwindow *window, double xoffset, double yoffset) {
+    scrollOffsetX = xoffset;
+    scrollOffsetY = yoffset;
+}
+
 void InputHandler::init(GLFWwindow* window) {
     bandedWindow = window;
     glfwSetCursorPosCallback(bandedWindow,cursorPositionCallback);
     glfwSetMouseButtonCallback(bandedWindow,mouseDownCallBack);
+    glfwSetScrollCallback(window,scrollCallback);
 }
 
 bool InputHandler::getMouseDownL(){
@@ -129,4 +136,15 @@ void InputHandler::clearStatus() {
     lRelease = false;
     rRelease = false;
     mRelease = false;
+
+    scrollOffsetX = 0.0;
+    scrollOffsetY = 0.0;
+}
+
+float InputHandler::getScrollOffsetX() {
+    return scrollOffsetX;
+}
+
+float InputHandler::getScrollOffsetY() {
+    return scrollOffsetY;
 }

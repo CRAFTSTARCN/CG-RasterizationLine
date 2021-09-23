@@ -2,6 +2,7 @@
 #define RENDERABLEOBJECT_H
 
 #include "glad/glad.h"
+#include "glm/glm.hpp"
 
 #include <functional>
 #include <vector>
@@ -12,8 +13,13 @@ protected:
     unsigned int VAO, VBO, EBO;
     GLenum drawType, rendType;
     int shaderProgram;
-    float pix;
+
 public:
+
+
+    glm::vec3 translate;
+    glm::vec3 rotate;
+    glm::vec3 scale;
 
     RenderableObject(GLenum drawT, GLenum rendT, int shader);
     ~RenderableObject();
@@ -26,7 +32,7 @@ public:
 
     void bindData();
 
-    virtual void renderPipline();
+    virtual void renderPipline(const glm::mat4& project);
 };
 
 #endif
