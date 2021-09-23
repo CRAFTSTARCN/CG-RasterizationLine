@@ -9,7 +9,7 @@ DynamicRendedLine::DynamicRendedLine(GLenum drawT, GLenum rendT, int shader, uns
 
 DynamicRendedLine::~DynamicRendedLine() {}
 
-void DynamicRendedLine::renderPipline() {
+void DynamicRendedLine::renderPipline(const glm::mat4& project) {
     if(InputHandler::getMouseL()) {
         if(InputHandler::getMouseDownL()) {
             x0 = InputHandler::getMouseX() / (float)srcSize;
@@ -26,7 +26,7 @@ void DynamicRendedLine::renderPipline() {
             vertices.push_back(x1);vertices.push_back(y1);vertices.push_back(0.0f);
             this->bindData();
             glLineWidth(2);
-            //RenderableObject::renderPipline();
+            RenderableObject::renderPipline(project);
         }
     }
 }

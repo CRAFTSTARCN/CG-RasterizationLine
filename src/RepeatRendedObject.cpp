@@ -15,11 +15,12 @@ RepeatRendedObject::RepeatRendedObject(GLenum drawT, GLenum rendT, int shader,
 }
 
 void RepeatRendedObject::init() {
+    float hp = (float)pixelSize / 2.0;
     vertices = {
-        -450.0f,-450.0f,0.0f,
-        -450.0f,-450.0f+pixelSize,0.0f,
-        -450.0f+pixelSize,-450.0f+pixelSize,0.0f,
-        -450.0f+pixelSize,-450.0f,0.0f
+        -hp,-hp,0.0f,
+        -hp,hp,0.0f,
+        hp,hp,0.0f,
+        hp,-hp,0.0f
     };
 
     indexes = {
@@ -28,13 +29,18 @@ void RepeatRendedObject::init() {
     };
 }
 void RepeatRendedObject::renderPipline(const glm::mat4& project) {
+    float hp = (float)pixelSize / 2.0;
+    float hc = (float)CanvasSize / 2.0;
     if(InputHandler::getMouseL()) {
+        float xTrans = InputHandler::getMouseX() + hc * scale.x - hc - translate.x;
+        float yTrans = (float)CanvasSize - InputHandler::getMouseY() + hc * scale.y - hc - translate.y;
         if(InputHandler::getMouseDownL()) {
-            x0 = floor( (InputHandler::getMouseX() - translate.x) / ((float)pixelSize) * scale.x);
-            y0 = floor(((float)CanvasSize - InputHandler::getMouseY() - translate.y) / ((float)pixelSize)* scale.x);
+            x0 = floor(xTrans / ((float)pixelSize * scale.x));
+            y0 = floor(yTrans / ((float)pixelSize * scale.y));
+
         } else {  
-            int xn = floor(InputHandler::getMouseX() / (float)pixelSize);
-            int yn = floor(((float)CanvasSize - InputHandler::getMouseY() - translate.y) / ((float)pixelSize)* scale.x);
+            int xn = floor(xTrans / ((float)pixelSize * scale.x));
+            int yn = floor(yTrans / ((float)pixelSize * scale.y));
             if(xn!=x1 || yn != y1) {
                 x1 = xn; y1 = yn;
                 (algo.*genFunc)(x0,y0,x1,y1);
@@ -57,15 +63,15 @@ void RepeatRendedObject::renderPipline(const glm::mat4& project) {
         x1 = 0; y1 = 0;
         if(InputHandler::getMouseR()) {
             if(InputHandler::getMouseDownR()) {
-                x0 = InputHandler::getMouseX();
-                y0 = InputHandler::getMouseY();
+                inputx0 = InputHandler::getMouseX();
+                inputy0 = InputHandler::getMouseY();
             } else {
-                x1 = InputHandler::getMouseX();
-                y1 = InputHandler::getMouseY();
-                translate.x += (x1 - x0);
-                translate.y += (y0 - y1);
-                x0 = x1;
-                y0 = y1;
+                inputx1 = InputHandler::getMouseX();
+                inputy1 = InputHandler::getMouseY();
+                translate.x += (inputx1 - inputx0);
+                translate.y += (inputy0 - inputy1);
+                inputx0 = inputx1;
+                inputy0 = inputy1;
             }
         } else {
             float scr = InputHandler::getScrollOffsetY();
@@ -89,6 +95,11 @@ void RepeatRendedObject::renderPipline(const glm::mat4& project) {
         }
     }
 
+    if(InputHandler::getMouseUpR()) {
+        inputx0 = 0; inputx1 = 0;
+        inputy0 = 0; inputy1 = 0;
+    }
+
     float maxOffset = (scale.x - 1.0f) * 450;
 
     if(translate.x > maxOffset) translate.x =maxOffset;
@@ -98,9 +109,9 @@ void RepeatRendedObject::renderPipline(const glm::mat4& project) {
 
     for(auto beg = algo.getResIter(); beg != algo.end(); ++beg) {
         glm::mat4 transfromMatrix(1.0f);
-        glm::vec3 translate2  = translate;
-        translate2.x += pixelSize * beg->first  * scale.x;
-        translate2.y += pixelSize * beg->second * scale.y;
+        glm::vec3 translate2  = translate;//glm::vec3(0,0,0);
+        translate2.x += pixelSize * beg->first  * scale.x - (450.0f - hp) * scale.x;
+        translate2.y += pixelSize * beg->second * scale.y - (450.0f - hp) * scale.y;
 
         transfromMatrix = glm::translate(transfromMatrix,translate2);
         transfromMatrix = glm::scale(transfromMatrix,scale);

@@ -66,7 +66,7 @@ void Window::setUpRendProp() {
         throw e;
     }
 
-    RenderableObject* obj = new TransfromObject(GL_STATIC_DRAW, GL_LINES, shaderProgram);
+    RenderableObject* obj = new TransfromObject(GL_STATIC_DRAW, GL_LINES, shaderProgram,900);
     
     obj->init([](RenderableObject* obj){
         int pix_num = 90;
@@ -103,7 +103,7 @@ void Window::setUpRendProp() {
     
     obj->bindData();
 
-    RenderableObject* obj2 = new TransfromObject(GL_STATIC_DRAW, GL_LINE_LOOP, shaderProgram);
+    RenderableObject* obj2 = new TransfromObject(GL_STATIC_DRAW, GL_LINE_LOOP, shaderProgram,900);
 
     obj2->vertices = {
         450,450,0,
@@ -131,8 +131,8 @@ void Window::setUpRendProp() {
 
     objects.push_back(obj);
     objects.push_back(obj2);
-    //objects.push_back(obj3);
-    //objects.push_back(obj4);
+    objects.push_back(obj3);
+    objects.push_back(obj4);
 }
 
 void Window::renderProcess() {

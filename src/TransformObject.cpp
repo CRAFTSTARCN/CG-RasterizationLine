@@ -2,29 +2,30 @@
 #include "InputHandler.h"
 #include "Logger.h"
 
-TransfromObject::TransfromObject(GLenum drawT, GLenum rendT, int shader) : 
+TransfromObject::TransfromObject(GLenum drawT, GLenum rendT, int shader, unsigned int srcsize) : 
     RenderableObject(drawT,rendT,shader)
 {
-    x0=0; y0=0;
-    x1=0; y1=0;
+    srcSize = srcsize;
+    inputx0=0; inputy0=0;
+    inputx1=0; inputy1=0;
 }
 
 TransfromObject::~TransfromObject() {}
 
-void TransfromObject::renderPipline(const glm::mat4& project) {
+void TransfromObject::getTransfromInfo() {
     if(InputHandler::getMouseL()) {
 
     } else if(InputHandler::getMouseR()) {
         if(InputHandler::getMouseDownR()) {
-            x0 = InputHandler::getMouseX();
-            y0 = InputHandler::getMouseY();
+            inputx0 = InputHandler::getMouseX();
+            inputy0 = InputHandler::getMouseY();
         } else {
-            x1 = InputHandler::getMouseX();
-            y1 = InputHandler::getMouseY();
-            translate.x += (x1 - x0);
-            translate.y += (y0 - y1);
-            x0 = x1;
-            y0 = y1;
+            inputx1 = InputHandler::getMouseX();
+            inputy1 = InputHandler::getMouseY();
+            translate.x += (inputx1 - inputx0);
+            translate.y += (inputy0 - inputy1);
+            inputx0 = inputx1;
+            inputy0 = inputy1;
         }
     } else {
         float scr = InputHandler::getScrollOffsetY();
@@ -48,17 +49,21 @@ void TransfromObject::renderPipline(const glm::mat4& project) {
     } 
 
     if(InputHandler::getMouseUpR()) {
-        x0 = 0; y0 = 0;
-        x1 = 0; y1 = 0;
+        inputx0 = 0; inputy0 = 0;
+        inputx1 = 0; inputy1 = 0;
     }
 
-    float maxOffset = (scale.x - 1.0f) * 450;
+    float maxOffset = (scale.x - 1.0f) * (float)srcSize / 2.0;
 
     if(translate.x > maxOffset) translate.x =maxOffset;
     if(translate.x < -maxOffset) translate.x = -maxOffset;
     if(translate.y > maxOffset) translate.y = maxOffset;
     if(translate.y < -maxOffset) translate.y = -maxOffset;
+}
 
+void TransfromObject::renderPipline(const glm::mat4& project) {
+    
+    getTransfromInfo();
 
     RenderableObject::renderPipline(project);
 }

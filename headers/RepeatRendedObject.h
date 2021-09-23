@@ -16,6 +16,8 @@ class RepeatRendedObject : public RenderableObject {
 
     int x0, y0,x1,y1;
 
+    int inputx0, inputx1, inputy0, inputy1;
+
     typedef void (Algo::*AlgoFunc)(int,int,int,int);
  
     AlgoFunc genFunc;
