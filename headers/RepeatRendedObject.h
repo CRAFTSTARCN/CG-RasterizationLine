@@ -9,7 +9,7 @@
 
 class RepeatRendedObject : public RenderableObject {
 
-    private:
+    protected:
     unsigned int CanvasSize;
     unsigned int pixelSize;
     Algo algo;
